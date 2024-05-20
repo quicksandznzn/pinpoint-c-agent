@@ -61,7 +61,7 @@ class PyRedisPipeLinePlugins(PyRedisPlugins):
         if isinstance(args[0], Pipeline) and args[0]:
             pipeLine = args[0]
             pinpoint.add_trace_header(
-                Defines.PP_DESTINATION, str(pipeLine.connection_pool.get_connection("")), trace_id)
+                Defines.PP_DESTINATION, str(pipeLine), trace_id)
             import sys
             if 'unittest' in sys.modules.keys():
                 pipeLine._pinpoint_ = True
